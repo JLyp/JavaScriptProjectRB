@@ -1,0 +1,1 @@
+Slider zadanie 1 - w trakcie dokańczania
