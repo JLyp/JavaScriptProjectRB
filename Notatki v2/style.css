@@ -1,0 +1,181 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-family: sans-serif;
+}
+body {
+    background: #000;
+}
+
+/* notes container */
+.container {
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    min-height: 95vh;
+    max-height: 200vh;
+    z-index: 1;
+}
+.container .notes {
+    width: 94%;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.container .notes .note {
+    background: rgb(33, 33, 39);
+    color: #fff;
+    margin: 0 auto;
+    width: 15rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 7px;
+    box-shadow: 0 0 2px 2px rgba(98, 100, 102, .308);
+}
+
+.notes .note:hover {
+    box-shadow: none;
+}
+
+.container .notes .add-note {
+    background: rgb(155, 154, 153);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .notes .add-note span {
+    font-size: 80px;
+    border-radius: 50%;
+    background: rgb(20, 20, 28);
+    cursor: pointer;
+}
+
+.container .notes .added-note h3{
+    padding-top: 15px;
+    cursor: pointer;
+}
+.container .notes .added-note .date {
+    font-size: 11px;
+    margin-left: 10rem;
+}
+
+.container .notes .added-note .buttons {
+    display: flex;
+    width: 95%;
+    padding: 0 10px;
+    justify-content: space-between;
+}
+.container .notes .added-note .buttons div {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(17, 17, 17, .575);
+}
+.added-note .buttons div:first-child {
+    color: yellow;
+}
+.added-note .buttons div:last-child {
+    color: red;
+}
+
+/* popup container  */
+.add-note-container {
+    position: absolute;
+    z-index: 3;
+    background: rgb(192, 192, 190);
+    width: 400px;
+    height: minmax(30vh,70vh);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 300ms ease;
+    display: none;
+}
+.add-note-container .title {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.add-note-container .title input {
+    width: 80%;
+    height: 2rem;
+    padding-left: 10px;
+    font-size: 1rem;
+    background: transparent;
+    border-bottom: 1px solid gray;
+    font-weight: 600;
+}
+.add-note-container .title input.focus {
+    border-bottom: 1px solid red;
+}
+.add-note-container .title div {
+    margin-left: 30px;
+    width: 2rem;
+    height: 2rem;
+    background: rgb(15, 15, 15);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+.add-note-container .title div span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #fff;
+}
+.add-note-container .title div:hover {
+    background: rgb(53, 53, 53);
+    transform: rotate(25deg);
+}
+.add-note-container .content textarea {
+    resize: none;
+    padding: 10px 0 0 10px;
+    font-size: 13px;
+    font-weight: 500;
+    background: transparent;
+}
+
+.add-note-container .buttons {
+    display: flex;
+    justify-content: end;
+    padding: 0 20px;
+}
+.add-note-container .buttons button {
+    width: 3.8rem;
+    height: 1.8rem;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-weight: 600;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+.add-note-container .buttons button:hover {
+    color: #000;
+    background: rgb(151, 151, 151);
+}
+.add-note-container .buttons #edited-note {
+    display: none;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+
+      <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- notes container -->
+    <div class="container">
+        <div class="notes">
+            <div class="note add-note" onclick="showBtn()">
+                <span class="material-icons-sharp">add</span>
+            </div>
+
+            <!-- <div class="note added-note">
+                <span class="date">10/10/2022</span>
+                <h3>Money Management</h3>
+                <div class="buttons">
+                    <div class="edit"><span class="material-icons-sharp">edit_note</span></div>
+                    <div class="delete"><span class="material-icons-sharp">delete</span></div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+
+
+    <!-- popup container -->
+    <div class="add-note-container" id="new-note">
+        <div class="title">
+            <input type="text" placeholder="title">
+            <div id="close-btn"><span class="material-icons-sharp">close</span></div>
+        </div>
+
+        <div class="content">
+            <textarea cols="44" rows="15" placeholder="note..."></textarea>
+        </div>
+
+        <div class="buttons">
+            <button id="submit">Submit</button>
+            <button id="edited-note">Change</button>
+        </div>
+    </div>
+    
+
+    <!-- javascript -->
+    <script src="main.js"></script>
+</body>
+</html>
