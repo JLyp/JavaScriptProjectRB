@@ -8,12 +8,12 @@
     font-family: sans-serif;
 }
 body {
-    background: #000;
+    background: rgb(255,255,255);
 }
 
 /* notes container */
 .container {
-    background: #000;
+    background: rgb(255, 255, 255);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -42,23 +42,24 @@ body {
     justify-content: space-between;
     padding: 5px;
     border-radius: 7px;
-    box-shadow: 0 0 2px 2px rgba(98, 100, 102, .308);
+    box-shadow: 0 0 2px 2px rgba(219, 219, 220, 0.308);
 }
 
 .notes .note:hover {
     box-shadow: none;
 }
-
+/*add to new nott*/
 .container .notes .add-note {
-    background: rgb(155, 154, 153);
+    background: rgb(0, 110, 255);
     display: flex;
     align-items: center;
     justify-content: center;
 }
+/*Button plus*/
 .container .notes .add-note span {
     font-size: 80px;
     border-radius: 50%;
-    background: rgb(20, 20, 28);
+    background: rgba(120, 183, 255, 0.92);
     cursor: pointer;
 }
 
@@ -88,17 +89,17 @@ body {
     background: rgba(17, 17, 17, .575);
 }
 .added-note .buttons div:first-child {
-    color: yellow;
+    color: rgb(0, 217, 255);
 }
 .added-note .buttons div:last-child {
-    color: red;
+    color: rgb(255, 255, 255);
 }
 
 /* popup container  */
 .add-note-container {
     position: absolute;
     z-index: 3;
-    background: rgb(192, 192, 190);
+    background: rgb(0, 119, 255);
     width: 400px;
     height: minmax(30vh,70vh);
     top: 50%;
@@ -132,7 +133,7 @@ body {
     margin-left: 30px;
     width: 2rem;
     height: 2rem;
-    background: rgb(15, 15, 15);
+    background: rgb(54, 54, 54);
     border-radius: 50%;
     position: relative;
     cursor: pointer;
@@ -146,8 +147,8 @@ body {
     color: #fff;
 }
 .add-note-container .title div:hover {
-    background: rgb(53, 53, 53);
-    transform: rotate(25deg);
+    background: rgb(83, 83, 83);
+    transform: rotate(50deg);
 }
 .add-note-container .content textarea {
     resize: none;
@@ -168,13 +169,14 @@ body {
     border-radius: 6px;
     margin-top: 5px;
     font-weight: 600;
-    background: #000;
+    background: rgb(0, 119, 255);
+    border-color: #fff;
     color: #fff;
     cursor: pointer;
 }
 .add-note-container .buttons button:hover {
-    color: #000;
-    background: rgb(151, 151, 151);
+    color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
 }
 .add-note-container .buttons #edited-note {
     display: none;
