@@ -1,91 +1,81 @@
-class Slider {
-  constructor(images) {
-    this.images = images;
-    this.slide = null;
-    this.prevBtn = null;
-    this.nextBtn = null;
-    this.image = null;
-    this.currentSlide = 0;
-    this.slideArrayLength = 0;
-    this.slideCaption = null;
+const slider = document.querySelector(".slider");
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+const slides = document.querySelectorAll(".slide");
+const slideIcons = document.querySelectorAll(".slide-icon");
+const numberOfSlides = slides.length;
+var slideNumber = 0;
 
-    this.UiSelectors = {
-      slide: '[data-slide]',
-      buttonPrev: '[data-button-prev]',
-      buttonNext: '[data-button-next]',
-    };
+//image slider next button
+nextBtn.addEventListener("click", () => {
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
+  slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+  });
+
+  slideNumber++;
+
+  if(slideNumber > (numberOfSlides - 1)){
+    slideNumber = 0;
   }
 
-  initializeSlider() {
-    this.slide = document.querySelector(this.UiSelectors.slide);
-    this.prevBtn = document.querySelector(this.UiSelectors.buttonPrev);
-    this.nextBtn = document.querySelector(this.UiSelectors.buttonNext);
+  slides[slideNumber].classList.add("active");
+  slideIcons[slideNumber].classList.add("active");
+});
 
-    this.image = document.createElement('img');
-    this.image.classList.add('slide__image');
+//image slider previous button
+prevBtn.addEventListener("click", () => {
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
+  slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+  });
 
-    this.setSlideAttributes(0);
+  slideNumber--;
 
-    this.slideArrayLength = this.images && this.images.length;
-
-    this.slide.appendChild(this.image);
-
-    this.slideCaption = document.createElement('figcaption');
-    this.addCaption();
-    this.slideCaption.classList.add('slide__caption');
-    this.slide.appendChild(this.slideCaption);
-
-    this.disableButtons();
-    this.addListeners();
+  if(slideNumber < 0){
+    slideNumber = numberOfSlides - 1;
   }
 
-  addListeners() {
-    this.prevBtn.addEventListener('click', () =>
-      this.changeSlide(this.currentSlide - 1),
-    );
-    this.nextBtn.addEventListener('click', () =>
-      this.changeSlide(this.currentSlide + 1),
-    );
+  slides[slideNumber].classList.add("active");
+  slideIcons[slideNumber].classList.add("active");
+});
 
-    document.addEventListener('keydown', (e) => {
-      if (e.keyCode === 37) {
-        this.changeSlide(this.currentSlide - 1);
-      } else if (e.keyCode === 39) {
-        this.changeSlide(this.currentSlide + 1);
-      }
+//image slider autoplay
+var playSlider;
+
+var repeater = () => {
+  playSlider = setInterval(function(){
+    slides.forEach((slide) => {
+      slide.classList.remove("active");
     });
-  }
+    slideIcons.forEach((slideIcon) => {
+      slideIcon.classList.remove("active");
+    });
 
-  disableButtons() {
-    this.currentSlide === 0
-      ? this.prevBtn.setAttribute('disabled', true)
-      : this.prevBtn.removeAttribute('disabled');
-    this.currentSlide === this.slideArrayLength - 1
-      ? this.nextBtn.setAttribute('disabled', true)
-      : this.nextBtn.removeAttribute('disabled');
-  }
+    slideNumber++;
 
-  changeSlide(index) {
-    if (index === -1 || index === this.slideArrayLength) return;
-    this.currentSlide = index;
+    if(slideNumber > (numberOfSlides - 1)){
+      slideNumber = 0;
+    }
 
-    this.addCaption();
-
-    this.setSlideAttributes(index);
-    this.disableButtons();
-  }
-
-  addCaption() {
-    this.slideCaption.innerText = `${this.currentSlide + 1}/${
-      this.slideArrayLength
-    }`;
-  }
-
-  setSlideAttributes(index) {
-    this.image.setAttribute(
-      'src',
-      Array.isArray(this.images) && this.images.length && this.images[index],
-    );
-    this.image.setAttribute('alt', `Slide ${index + 1}`);
-  }
+    slides[slideNumber].classList.add("active");
+    slideIcons[slideNumber].classList.add("active");
+  }, 4000);
 }
+repeater();
+
+//stop the image slider autoplay on mouseover
+slider.addEventListener("mouseover", () => {
+  clearInterval(playSlider);
+});
+
+//start the image slider autoplay again on mouseout
+slider.addEventListener("mouseout", () => {
+  repeater();
+});
+
+  
