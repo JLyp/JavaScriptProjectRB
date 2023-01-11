@@ -12,12 +12,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000116;
+  background: #ffffff;
 }
 
 .slider{
   position: relative;
-  background: #000116;
+  background: #ededed;
   width: 800px;
   min-height: 500px;
   margin: 20px;
