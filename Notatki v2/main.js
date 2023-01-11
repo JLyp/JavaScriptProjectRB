@@ -202,5 +202,6 @@ function myFunction() {
         } else {
             li[i].style.display = "none";
         }
+        
     }
 }

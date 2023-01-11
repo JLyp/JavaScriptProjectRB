@@ -1,0 +1,42 @@
+#ball {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgb(236, 255, 151);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .container{
+      overflow: hidden;
+  }
+  .container button{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 200px;
+    height: 150px;
+    font-size: 3em;
+  }
+  .put, .goodput, .tempDziura{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    z-index: -2;
+    position: absolute;
+  }
+  .goodput{
+    background: #00db1a;
+    z-index: -1;
+  }
+  .put{
+    background: #000000;    
+  }
+  .tempput{
+    background: #89be20;
+  }
+  .highScoreList{
+    float: right;
+    list-style: none;
+    font-size: 2em;
+  }
