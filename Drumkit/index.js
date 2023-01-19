@@ -1,38 +1,43 @@
-    // Step 1: Create a variable to store the recorded sounds
+
     let recordedSounds = [];
     let isRecording = false;
     
-    // Step 2: Add a "Start Recording" button to the UI
+
     let startRecordingBtn = document.createElement("button");
     startRecordingBtn.innerHTML = "Start Recording";
     document.body.appendChild(startRecordingBtn);
     
-    // Step 3: Add event listener for the "Start Recording" button
+
     startRecordingBtn.addEventListener("click", function() {
-      isRecording = true;
+      recordedSounds = [];
+        isRecording = true;
     });
     
-    // Step 4: Add a "Stop Recording" button to the UI
+    
     let stopRecordingBtn = document.createElement("button");
     stopRecordingBtn.innerHTML = "Stop Recording";
     document.body.appendChild(stopRecordingBtn);
     
-    // Step 5: Add event listener for the "Stop Recording" button
+
     stopRecordingBtn.addEventListener("click", function() {
+        console.log(recordedSounds);
       isRecording = false;
     });
     
-    // Step 6: Add a "Play Recording" button to the UI
+
     let playRecordingBtn = document.createElement("button");
     playRecordingBtn.innerHTML = "Play Recording";
     document.body.appendChild(playRecordingBtn);
     
-    // Step 7: Add event listener for the "Play Recording" button
+
     playRecordingBtn.addEventListener("click", function() {
-      recordedSounds.forEach(sound => {
-        new Audio(sound).play();
+        recordedSounds.forEach(function (sound, index) {
+          setTimeout(function () {
+              new Audio(sound).play();
+              console.log(sound)
+          }, index * 500);
+        });
       });
-    });
 ndrums = document.querySelectorAll(".drum").length;
 for (var i = 0; i < ndrums; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function (e) {
@@ -55,39 +60,41 @@ document.addEventListener("keydown", function(event) {
 
 function selectedButton(buttonX)
 {
+    sound = null;
     switch (buttonX) {
         case 'w':
-            new Audio('sounds/tom-1.mp3').play();
+            sound = 'sounds/tom-1.mp3';
             break;
         case 'a':
-            new Audio('sounds/tom-2.mp3').play();
+            sound = 'sounds/tom-2.mp3';
             break
         case 's':
-            new Audio('sounds/tom-3.mp3').play();
+            sound = 'sounds/tom-3.mp3';
             break
         case 'd':
-            new Audio('sounds/tom-4.mp3').play();
+            sound = 'sounds/tom-4.mp3';
             break
         case 'j':
-            new Audio('sounds/snare.mp3').play();
+            sound = 'sounds/snare.mp3';
             break
         case 'k':
-            new Audio('sounds/kick-bass.mp3').play();
+            sound = 'sounds/kick-bass.mp3';
             break
         case 'l':
-            new Audio('sounds/crash.mp3').play();
+            sound = 'sounds/crash.mp3';
             break
 
         default:
-        console.log(this)
+             console.log(this)
+    }
+    console.log(sound)
+    if (sound != null){
+        new Audio(sound).play();
 
         if (isRecording) {
-            recordedSounds.push(`sounds/${clickedButton}.mp3`);
-          }
-
-          if (isRecording) {
-            recordedSounds.push(`sounds/${keyPressed}.mp3`);
-          }
+            recordedSounds.push(sound);
+            console.log(recordedSounds);
+        }
     }
 }
 
@@ -101,12 +108,5 @@ function animateButton(key)
         activeKey.classList.remove("color")
 
     }, 500);
-    if (isRecording) {
-        recordedSounds.push(`sounds/${clickedButton}.mp3`);
-      }
-      
-      if (isRecording) {
-        recordedSounds.push(`sounds/${keyPressed}.mp3`);
-      }
 }
 

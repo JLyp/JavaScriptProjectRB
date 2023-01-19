@@ -40,7 +40,7 @@ function Circle (x, y, r, c) {
 
 const balls = [];
 for (let i = 0; i < 20; i++) {
- let r = Math.floor(Math.random() * 30) + 15;
+ let r = Math.floor(Math.random() * 30) + 15 ;
  let x = Math.random() * (canvas.width - r * 2) + r;
  let y = Math.random() * (canvas.height - r * 2) + r;
  let c = 'White';
