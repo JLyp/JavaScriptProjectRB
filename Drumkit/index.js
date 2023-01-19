@@ -1,8 +1,42 @@
-
+    // Step 1: Create a variable to store the recorded sounds
+    let recordedSounds = [];
+    let isRecording = false;
+    
+    // Step 2: Add a "Start Recording" button to the UI
+    let startRecordingBtn = document.createElement("button");
+    startRecordingBtn.innerHTML = "Start Recording";
+    document.body.appendChild(startRecordingBtn);
+    
+    // Step 3: Add event listener for the "Start Recording" button
+    startRecordingBtn.addEventListener("click", function() {
+      isRecording = true;
+    });
+    
+    // Step 4: Add a "Stop Recording" button to the UI
+    let stopRecordingBtn = document.createElement("button");
+    stopRecordingBtn.innerHTML = "Stop Recording";
+    document.body.appendChild(stopRecordingBtn);
+    
+    // Step 5: Add event listener for the "Stop Recording" button
+    stopRecordingBtn.addEventListener("click", function() {
+      isRecording = false;
+    });
+    
+    // Step 6: Add a "Play Recording" button to the UI
+    let playRecordingBtn = document.createElement("button");
+    playRecordingBtn.innerHTML = "Play Recording";
+    document.body.appendChild(playRecordingBtn);
+    
+    // Step 7: Add event listener for the "Play Recording" button
+    playRecordingBtn.addEventListener("click", function() {
+      recordedSounds.forEach(sound => {
+        new Audio(sound).play();
+      });
+    });
 ndrums = document.querySelectorAll(".drum").length;
 for (var i = 0; i < ndrums; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function (e) {
-        // this.style.color = "cyan";
+     
         console.log(e)
         var clickedButton = this.textContent;
         console.log(clickedButton)
@@ -11,7 +45,7 @@ for (var i = 0; i < ndrums; i++) {
     });
 }
 
-// detecting keys pressed
+
 document.addEventListener("keydown", function(event) {
     var keyPressed = event.key.toLowerCase();
     console.log(keyPressed);
@@ -46,6 +80,14 @@ function selectedButton(buttonX)
 
         default:
         console.log(this)
+
+        if (isRecording) {
+            recordedSounds.push(`sounds/${clickedButton}.mp3`);
+          }
+
+          if (isRecording) {
+            recordedSounds.push(`sounds/${keyPressed}.mp3`);
+          }
     }
 }
 
@@ -59,4 +101,12 @@ function animateButton(key)
         activeKey.classList.remove("color")
 
     }, 500);
+    if (isRecording) {
+        recordedSounds.push(`sounds/${clickedButton}.mp3`);
+      }
+      
+      if (isRecording) {
+        recordedSounds.push(`sounds/${keyPressed}.mp3`);
+      }
 }
+

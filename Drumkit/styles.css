@@ -1,27 +1,15 @@
 html {
   height: 100%;
-  /* height:max-content; */
+ 
 }
 
 body {
   text-align: center;
-  background: linear-gradient(135deg, rgb(0, 46, 38), #00bc8a);
-  background-repeat: no-repeat;
-  /* background: linear-gradient(45deg,#2a0386, rgb(218, 7, 105)); */
   user-select: none;
-  /* height: 100%; */
-}
-
-h1 {
-  font-size: 6rem;
-  color: #DBEDF3;
-  
 
 }
-
 
 .pressed {
-  /* box-shadow: 0 3px 4px 0 #DBEDF3; */
   box-shadow: 0 0 10px #DBEDF3, 0 0 27px #DBEDF3;
   opacity: 0.9;
 }
@@ -32,14 +20,11 @@ h1 {
 
 .drum {
   outline: none;
-  border: 10px solid;
-  border-radius: 15px;
   border-image-slice: 1;
- 
   font-size: 5rem;
   line-height: 2;
   font-weight: 900;
-  color: #01743a;
+  color: #000000;
   text-shadow: 3px 0 #102e35;
   display: inline-block;
   width: 150px;
@@ -47,7 +32,6 @@ h1 {
   text-align: center;
   margin: 10px;
   background-color: rgb(174, 174, 174);
-  /* transition: 2000ms; */
 }
 
 p {
